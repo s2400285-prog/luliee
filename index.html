@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Julie ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <audio id="bgMusic" loop>
+      <source src="bags.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="music-player">
+      <div class="music-disc" id="musicDisc">💿</div>
+
+      <div class="music-info">
+        <span>NOW PLAYING</span>
+        <strong>Bags</strong>
+        <small>Clairo ♡</small>
+      </div>
+
+      <button class="music-button" id="musicButton" onclick="toggleMusic()">
+        ▶
+      </button>
+    </div>
+
+    <div class="background-hearts"></div>
+
+    <main class="container">
+      <section class="intro" id="intro">
+        <p class="small-text">A little something for you...</p>
+
+        <h1>For Julie ❤️</h1>
+
+        <p class="intro-text">
+          I made this little page just for you. Maybe this can make your day a
+          little brighter, even just lang.
+        </p>
+
+        <button class="start-btn" onclick="startJourney()">
+          Open this for me 💌
+        </button>
+      </section>
+
+      <section class="photo-section hidden" id="photoSection">
+        <h2>Some moments of you ✨</h2>
+
+        <p class="swipe-text">Swipe the picture or use the buttons →</p>
+
+        <div class="photo-card" id="photoCard">
+          <img id="juliePhoto" src="julie1.jpg" alt="Julie" />
+
+          <div class="photo-number" id="photoNumber">1 / 5</div>
+        </div>
+
+        <div class="photo-buttons">
+          <button onclick="previousPhoto()">←</button>
+          <button onclick="nextPhoto()">→</button>
+        </div>
+
+        <p class="photo-message" id="photoMessage">
+          This picture is cute, but you know what's cuter? You. ❤️
+        </p>
+
+        <button class="continue-btn" onclick="showMessage()">
+          There's something I want to tell you 💗
+        </button>
+      </section>
+
+      <section class="message-section hidden" id="messageSection">
+        <div class="message-card">
+          <div class="heart-icon">💗</div>
+
+          <h2>A Little Message For You</h2>
+
+          <p>
+            Julie, I just want you to know that I really appreciate having you
+            in my life.
+          </p>
+
+          <p>
+            You're someone who can make an ordinary day feel a little more
+            special just by being yourself.
+          </p>
+
+          <p>
+            I like your smile, your personality, the way you talk, and even
+            those little things you probably don't notice about yourself.
+          </p>
+
+          <p>
+            Honestly, <b>you're beautiful babyyy</b>. And I'm not only talking
+            about your looks. There's something about you that makes me want to
+            know you more and stay a little longer.
+          </p>
+
+          <p>
+            I don't want to rush anything. Gsto slowly get closer to you, make
+            you smile, support you, and create good memories together.
+          </p>
+
+          <p>
+            Kis a I don't know exactly what to say, but I hope you can feel that
+            my intentions are sincere.
+          </p>
+
+          <p>
+            I may not always have the perfect words, pero I mean what I say.
+          </p>
+
+          <p>
+            You don't have to be perfect around me. You can simply be yourself.
+            And honestly, that's more than enough.
+          </p>
+
+          <p class="special">
+            Palangga, I hope you always remember that you deserve happiness,
+            peace, success, and someone who genuinely appreciates you.
+          </p>
+
+          <p>
+            And if you let me, I'd really like to be someone who makes your days
+            a little brighter.
+          </p>
+
+          <p class="signature">— Shy ❤️</p>
+        </div>
+
+        <button class="secret-btn" onclick="showSecret()">
+          One more thing... 👀
+        </button>
+      </section>
+
+      <section class="secret-section hidden" id="secretSection">
+        <div class="secret-card">
+          <div class="sparkle">✨</div>
+
+          <h2>Okay... here's my honest answer.</h2>
+
+          <p>If you ever wonder whether I enjoy talking to you...</p>
+
+          <h1>Yes. Very much. ❤️</h1>
+
+          <p>If you wonder whether I want to know you better...</p>
+
+          <h1>Gani, yes. 🥹❤️</h1>
+
+          <p>And if you wonder whether I want to keep pursuing you...</p>
+
+          <h1>Absolutely. 💗</h1>
+
+          <p>
+            I don't know where this journey will take us, but I know that I want
+            to enjoy the journey instead of being afraid of where it ends.
+          </p>
+
+          <button onclick="showFinal()">Click this last one 💌</button>
+        </div>
+      </section>
+
+      <section class="final-section hidden" id="finalSection">
+        <div class="final-card">
+          <div class="big-heart">❤️</div>
+
+          <h1>Julie</h1>
+
+          <p>Thank you for being you.</p>
+
+          <p>
+            I hope tomorrow treats you kindly. I hope your dreams slowly become
+            reality, and I hope you always have reasons to smile.
+          </p>
+
+          <p>
+            Take care of yourself, okay? Eat properly, rest when you're tired,
+            and don't forget that you are special.
+          </p>
+
+          <p class="last-line">
+            And maybe someday, I'll be lucky enough to make some of those
+            beautiful memories with you. 🌷
+          </p>
+
+          <button onclick="restartPage()">Read it again ❤️</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

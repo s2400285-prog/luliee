@@ -1,0 +1,473 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #ffd6e7, transparent 40%),
+    linear-gradient(135deg, #120b16, #281323, #120b16);
+  color: white;
+  overflow-x: hidden;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #ff5f9e, #d83f83);
+  padding: 14px 25px;
+  border-radius: 50px;
+  font-size: 15px;
+  box-shadow: 0 0 20px rgba(255, 95, 158, 0.35);
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 35px rgba(255, 95, 158, 0.65);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.background-hearts::before,
+.background-hearts::after {
+  content: "❤  ♡  ✦  ❤  ♡  ✧  ❤  ♡";
+  position: fixed;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  font-size: 25px;
+  letter-spacing: 25px;
+  opacity: 0.15;
+  animation: floating 15s linear infinite;
+  pointer-events: none;
+}
+
+.background-hearts::after {
+  animation-duration: 20s;
+  animation-delay: 5s;
+}
+
+@keyframes floating {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-130vh) rotate(360deg);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  padding: 30px 20px 70px;
+}
+
+.music-player {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 60px;
+  background: rgba(30, 15, 25, 0.78);
+  border: 1px solid rgba(255, 180, 210, 0.25);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.music-disc {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 31px;
+  border-radius: 50%;
+}
+
+.music-disc.playing {
+  animation: spinDisc 3s linear infinite;
+}
+
+@keyframes spinDisc {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+}
+
+.music-info span {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #ff9fc5;
+}
+
+.music-info strong {
+  font-size: 14px;
+}
+
+.music-info small {
+  font-size: 11px;
+  color: #cdbbc5;
+}
+
+.music-button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.small-text {
+  color: #ffb8d5;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.intro h1 {
+  font-size: clamp(50px, 10vw, 90px);
+  background: linear-gradient(90deg, #ffffff, #ffb4d3, #ffffff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0%;
+  }
+
+  50% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 0%;
+  }
+}
+
+.intro-text {
+  max-width: 550px;
+  margin: 20px auto 35px;
+  line-height: 1.8;
+  color: #e8dce3;
+}
+
+.photo-section {
+  text-align: center;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.photo-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.swipe-text {
+  color: #d9c4cf;
+  margin-bottom: 25px;
+}
+
+.photo-card {
+  position: relative;
+  width: min(90vw, 430px);
+  margin: auto;
+  padding: 10px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+  touch-action: pan-y;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+.photo-number {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.photo-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.photo-buttons button {
+  width: 55px;
+  height: 55px;
+  padding: 0;
+  font-size: 24px;
+}
+
+.photo-message {
+  min-height: 50px;
+  color: #ffd4e4;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.message-section {
+  min-height: 100vh;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.message-card {
+  text-align: left;
+  max-width: 700px;
+  margin: auto;
+  padding: 35px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
+}
+
+.heart-icon {
+  display: block;
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.message-card h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.message-card p {
+  color: #eadde4;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.message-card b {
+  color: #ff9fc5;
+}
+
+.special {
+  color: #ffc2da !important;
+  font-size: 18px !important;
+}
+
+.signature {
+  text-align: right;
+  color: #ff9fc5 !important;
+  margin-top: 35px;
+}
+
+.secret-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.secret-card {
+  max-width: 650px;
+  padding: 45px 30px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 60px rgba(255, 100, 160, 0.2);
+}
+
+.sparkle {
+  font-size: 50px;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  50% {
+    transform: scale(1.3) rotate(10deg);
+  }
+}
+
+.secret-card h2 {
+  margin: 20px 0 30px;
+}
+
+.secret-card p {
+  line-height: 1.8;
+  color: #e6d7df;
+  margin: 18px 0;
+}
+
+.secret-card h1 {
+  color: #ffb4d1;
+  margin: 12px 0;
+}
+
+.final-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.final-card {
+  max-width: 650px;
+  padding: 50px 30px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+.big-heart {
+  font-size: 75px;
+  animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+.final-card h1 {
+  font-size: 55px;
+  color: #ffafd0;
+  margin: 15px 0 25px;
+}
+
+.final-card p {
+  color: #e8dce3;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.last-line {
+  color: #ffc4db !important;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 15px 50px;
+  }
+
+  .music-player {
+    top: 12px;
+    right: 12px;
+    padding: 8px 10px;
+  }
+
+  .music-disc {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+  }
+
+  .music-info {
+    min-width: 75px;
+  }
+
+  .music-info strong {
+    font-size: 12px;
+  }
+
+  .music-info small {
+    font-size: 10px;
+  }
+
+  .music-info span {
+    font-size: 7px;
+  }
+
+  .music-button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .photo-section {
+    padding-top: 80px;
+  }
+
+  .message-card {
+    padding: 25px 20px;
+  }
+
+  .message-card p {
+    font-size: 15px;
+  }
+
+  .message-card h2 {
+    font-size: 26px;
+  }
+
+  .secret-card,
+  .final-card {
+    padding: 35px 20px;
+  }
+
+  .final-card h1 {
+    font-size: 45px;
+  }
+}
